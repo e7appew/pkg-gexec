@@ -1,0 +1,16 @@
+Source: gexec
+Section: x11
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Build-Depends: debhelper (>= 10), libgtk2.0-dev, libglib2.0-dev
+Homepage: https://github.com/fboender/gexec
+Standards-Version: 3.9.8
+
+Package: gexec
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: gksu, xterm
+Description: Small command executer with autocompletion using GTK+
+ gexec is a small and simple command executer using GTK+. It features
+ autocompletition and a command history. Furthermore gexec can run
+ the chosen command as root or in a terminal emulator.

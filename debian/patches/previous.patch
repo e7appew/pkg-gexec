@@ -1,0 +1,24 @@
+Description: Changes that were previously applied to source
+Author: David William Richmond Jones <dwrj87@gmail.com>
+Forwarded: no
+Last-Update: 2016-11-22
+
+--- gexec-0.4.orig/Makefile
++++ gexec-0.4/Makefile
+@@ -7,7 +7,7 @@ FLAGS = -Wall -g
+ main: gexec
+ gexec: autocomp.o gexec.o
+ 	$(CC) autocomp.o gexec.o -o gexec $(LIBS) $(INCS) $(FLAGS)
+-	strip gexec
++
+ gexec.o: gexec.c
+ 	$(CC) -c gexec.c $(INCS) $(FLAGS)
+ autocomp.o: autocomp.c autocomp.h
+@@ -16,5 +16,5 @@ clean:
+ 	-rm gexec
+ 	-rm *.o
+ install:
+-	-cp gexec /usr/local/bin
+-	-cp gexec.1 /usr/local/man/man1/
++	install -m755 -D gexec $(DESTDIR)/usr/bin/gexec
++	install -m644 -D gexec.1 $(DESTDIR)/usr/share/man/man1/gexec.1
