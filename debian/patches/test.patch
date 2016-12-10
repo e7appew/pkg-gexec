@@ -1,11 +1,11 @@
 Description: Enable build hardening
 Author: David William Richmond Jones <dwrj87@gmail.com>
 Forwarded: no
-Last-Update: 2016-11-22
+Last-Update: 2016-12-10
 
 --- a/Makefile
 +++ b/Makefile
-@@ -2,19 +2,20 @@
+@@ -2,19 +2,20 @@ CC = gcc
  LIBS = `pkg-config --libs gtk+-2.0`
  INCS = `pkg-config --cflags gtk+-2.0`
  
@@ -16,7 +16,7 @@ Last-Update: 2016-11-22
  main: gexec
  gexec: autocomp.o gexec.o
 -	$(CC) autocomp.o gexec.o -o gexec $(LIBS) $(INCS) $(FLAGS)
-+	$(CC) autocomp.o gexec.o -o gexec $(LIBS) $(INCS) $(CFLAGS) $(LDFLAGS)
++	$(CC) autocomp.o gexec.o -o gexec $(LDFLAGS) $(LIBS)
  
  gexec.o: gexec.c
 -	$(CC) -c gexec.c $(INCS) $(FLAGS)
